@@ -37,4 +37,8 @@ INSERT INTO usuarios(nome,email,idade) VALUES(
 
 SHOW TABLES;
 SELECT * FROM usuarios;
-SELECT * FROM usuarios WHERE idade = 20;
+SELECT * FROM usuarios WHERE idade >= 20;
+
+DELETE FROM usuarios WHERE nome = "Maria";
+
+UPDATE usuarios SET idade = 20 WHERE nome = "Math";
