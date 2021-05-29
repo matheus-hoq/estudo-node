@@ -18,7 +18,7 @@ const sequelize = new Sequelize('estudonode', 'root', 'root', {
 //Rotas
 
     app.get('/cad', function(req, res){
-        res.render('formulario.')
+        res.render('formulario')
     })
 
 app.listen(8081, function(){

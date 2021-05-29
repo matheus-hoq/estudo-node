@@ -42,3 +42,10 @@ SELECT * FROM usuarios WHERE idade >= 20;
 DELETE FROM usuarios WHERE nome = "Maria";
 
 UPDATE usuarios SET idade = 20 WHERE nome = "Math";
+
+DESCRIBE postagens;
+DESCRIBE usuarios;
+
+SELECT * FROM postagens;
+SELECT * FROM usuarios;
+
