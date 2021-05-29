@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
 
 
 //Config
@@ -20,6 +20,7 @@ const sequelize = new Sequelize('estudonode', 'root', 'root', {
     app.get('/cad', function(req, res){
         res.render('formulario')
     })
+
 
 app.listen(8081, function(){
     console.log("Servidor rodando na url http://localhost:8081");
