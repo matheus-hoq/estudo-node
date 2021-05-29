@@ -17,7 +17,9 @@ const Post = require('./models/Post')
 //Rotas
 
     app.get('/', function(req, res){
-        res.render('home')
+        Post.findAll().then(function(posts){
+            res.render('home', {nome: "math", sobrenome: "hoq" })
+        })
     })
 
     app.get('/cad', function(req, res){
