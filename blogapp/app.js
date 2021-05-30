@@ -20,8 +20,17 @@ const mongoose = require("mongoose")
         }).catch((erro) => {
             console.log("Erro ao se conectar: "+err)
         })
+
+
     //Public
         app.use(express.static(path.join(__dirname,"public")))
+        
+        // app.use((req, res, next) => {
+        //     console.log("OI, eu sou um middleware!")
+        //     next()
+        // })
+
+
 //rotas
     app.get('/', (req,res) => {
         res.send('Rota principal')
@@ -32,6 +41,8 @@ const mongoose = require("mongoose")
     })
 
     app.use('/admin', admin)
+
+
 //outros
 const PORT = 8081
 app.listen(PORT,() => {
