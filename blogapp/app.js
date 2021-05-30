@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars')
 const bodyParser = require("body-parser")
 const app = express()
 const admin = require("./routes/admin")
+const path = require("path")
 //const mongoose = require("mongoose")
 
 //configuraçôes
@@ -15,6 +16,8 @@ const admin = require("./routes/admin")
         app.set('view engine', 'handlebars');
     //mongoose
         //em breve
+    //Public
+        app.use(express.static(path.join(__dirname,"public")))
 //rotas
     app.get('/', (req,res) => {
         res.send('Rota principal')
