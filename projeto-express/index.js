@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Post = require('./models/Post')
+const Post = require('./models/Post');
+const { Console } = require("console");
 
 
 //Config
@@ -17,8 +18,9 @@ const Post = require('./models/Post')
 //Rotas
 
     app.get('/', function(req, res){
-        Post.findAll().then(function(posts){
-            res.render('home', {nome: "math", sobrenome: "hoq" })
+        Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
+            console.log(posts)
+            res.render('home', {posts: posts})
         })
     })
 
