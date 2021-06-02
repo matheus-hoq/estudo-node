@@ -82,7 +82,7 @@ router.post("/categorias/edit", (req,res) => {
         categoria.save().then(() => {
             req.flash("success_msg", "Categoria editada com sucesso!")
             res.redirect("/admin/categorias")
-        }).catch((err) => {
+        }).catch((err) => {            
             req.flash("error_msg", "Houve um erro interno ao salvar a edição da categoria")
             res.redirect("/admin/categorias")
         })
@@ -194,7 +194,16 @@ router.post("/postagem/edit", (req, res) => {
         req.flash("error_msg", "Houve um erro ao salvar a edição")
         res.redirect("/admin/postagens")
     })
+})
 
+router.get("/postagens/deletar/:id", (req, res) => {
+    Postagem.remove({_id: req.params.id}).then(() => {
+        req.flash("success_msg", "Postagem deletada com sucesso!")
+        res.redirect("/admin/postagens")
+    }).catch((err) => {
+        req.flash("error_msg", "Houve um erro interno")
+        res.redirect("/admin/postagens")
+    })
 })
 
 module.exports = router

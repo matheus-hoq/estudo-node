@@ -48,7 +48,7 @@ const flash = require("connect-flash")
 
 //rotas
     app.get('/', (req,res) => {
-        res.send('Rota principal')
+        res.render('index')
     })
 
     app.get('/posts', (req,res) => {
