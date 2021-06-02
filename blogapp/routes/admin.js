@@ -102,8 +102,8 @@ router.post("/categorias/deletar", (req,res) => {
 })
 
 
-router.get('/teste',(req,res) => {
-    res.send("Isso é um teste")
+router.get("/postagens", (req,res) => {
+    res.render ("admin/postagens")
 })
 
 module.exports = router
