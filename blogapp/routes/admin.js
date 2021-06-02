@@ -4,6 +4,8 @@ const mongoose = require("mongoose")
 //const { is } = require("sequelize/types/lib/operators")
 require("../models/Categoria")
 const Categoria = mongoose.model("categorias")
+require('../models/Postagem')
+const Postagem = mongoose.model("postagens")
 
 router.get('/', (req,res) => {
     res.render("admin/index")
@@ -113,6 +115,22 @@ router.get("/postagens/add", (req, res) => {
         req.flash("error_msg", "Houve um erro ao carregar o formulário")
         res.redirect("/admin")
     })   
+})
+
+router.post("/postagens/nova", (req, res) => {
+
+    var erros = []
+
+    if(req.body.categoria == "0"){
+        erros.push({texto: "Categoria inválida, registre uma categoria"})
+    }
+
+    if(erros.length > 0){
+        res.render("admin/addpostagem", {erros: erros})
+    }else{
+
+    }
+
 })
 
 module.exports = router
