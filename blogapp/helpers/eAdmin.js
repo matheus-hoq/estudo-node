@@ -5,7 +5,7 @@ module.exports = {
             return next();
         }
 
-        req.flash("error_msg", "Você precisa ser Admin")
+        req.flash("error_msg", "Você precisa ser Admin para realizar essa ação")
         res.redirect("/")
     }
 }
