@@ -52,7 +52,7 @@ router.post("/registro", (req, res) => {
                 bcrypt.genSalt(10, (erro, salt) => {
                     bcrypt.hash(novoUsuario.senha, salt, (erro, hash) => {
                         if(erro){
-                            req.flash("error_msg", "Houve um erro durante o salvamento do usuário")
+                            req.flash("error_msg", "Houve um erro durante o salvamento do usuário, tente novamente")
                             res.redirect("/")
                         }
 
@@ -70,7 +70,7 @@ router.post("/registro", (req, res) => {
 
             }
         }).catch((err) => {
-            req.flash("error_msg", "Houve um erro interno")
+            req.flash("error_msg", "Houve um erro interno, tente novamwnte")
             res.redirect("/")
         })
     }
