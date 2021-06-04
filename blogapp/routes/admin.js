@@ -21,7 +21,7 @@ router.get("/categorias", eAdmin, (req,res) => {
         res.render("admin/categorias", {categorias: categorias.map(categoria => categoria.toJSON())})   
         //    res.render("admin/categorias", {categorias: categorias})
     }).catch((err) => {
-        req.flash("error_msg", "Houve um erro ao listar as categorias")
+        req.flash("error_msg", "Houve um erro ao listar as categorias, tente novamente")
         res.redirect("/admin")
     })
 })
@@ -167,7 +167,7 @@ router.get("/postagens/edit/:id",  eAdmin, (req, res) => {
         })
 
         }).catch((err) => {
-            req.flash("error_msg", "Houve um erro ao carregar o formulário de edição")
+            req.flash("error_msg", "Houve um erro ao carregar o formulário de edição, tente novamente")
             res.redirect("/admin/postagens")
         })
 
@@ -187,12 +187,12 @@ router.post("/postagem/edit",  eAdmin, (req, res) => {
             req.flash("success_msg", "Postagem editada com sucesso")
             res.redirect("/admin/postagens")
         }).catch((err) => {
-            req.flash("error_msg", "Erro interno")
+            req.flash("error_msg", "Erro interno, tente novamente")
             res.redirect("/admin/postagens")
         })
 
     }).catch((err) => {
-        req.flash("error_msg", "Houve um erro ao salvar a edição")
+        req.flash("error_msg", "Houve um erro ao salvar a edição, tente novamente")
         res.redirect("/admin/postagens")
     })
 })
